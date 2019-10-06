@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
+    <script src="jquery.js"></script>
+    <script src="jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+
+    <div data-role="page" id="homepage">
+        <div data-role="header">
+            <h1>Simple Calculator</h1>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+                <li><a href="#calculator2" data-icon="grid">Calculator</a></li>
+                <li><a href="#help3" data-icon="info">Help</a></li>
+
+            </ul>
+        </div>
+
+        <div data-role="main" id="homepage" class="ui-content">
+            <p>This is a jQuery mobile exercise which provides the user with a calculator for basic mathematical operations</p>
+        </div>
+
+
+        <div data-role="footer">
+            <h1>Homework</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div data-role="page" id="calculator2">
+        <div data-role="header">
+            <h1>Simple Calculator</h1>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-icon="home">Home</a></li>
+                <li><a href="#calculator2" data-icon="grid" class="ui-btn-active ui-state-persist" data-icon="arrow-r">Calculator</a></li>
+                <li><a href="#help3" data-icon="info">Help</a></li>
+
+            </ul>
+        </div>
+
+        <div data-role="main" id="homepage" class="ui-content">
+        </div>
+
+        <form method="post" action="demoform.asp">
+            <div class="ui-field-contain">
+			<label for="num1">First Number:</label><br><br><br>
+                <input type="text" id="num1">
+				
+				<fieldset class="ui-field-contain">
+				<select name="day" id="day">
+				<option value="+"> + </option>
+				<option value="-"> - </option>
+				<option value="*"> * </option>
+				<option value="/"> / </option>
+				</select>
+				</fieldset>
+				<br><br><br><br><br><br><br>
+				
+				<label for="num1">Second Number:</label><br><br><br>
+                <input type="text" id="num2">
+            </div>
+        </form>
+
+        <div>
+            <a href="#resultpage" onclick="myfunction();" class="ui-btn">Calculate</a>
+        </div>
+
+        <div data-role="footer">
+            <h1>Homework</h1>
+        </div>
+    </div>
+
+
+
+
+
+    <div data-role="page" id="resultpage">
+        <div data-role="header">
+            <h1>RESULTS</h1>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-icon="home">Home</a></li>
+                <li><a href="#calculator2" data-icon="grid">Calculator</a></li>
+                <li><a href="#help3" data-icon="info">Help</a></li>
+
+            </ul>
+        </div>
+	
+	<div data-role="main" id="resulat" class="ui-content">
+			<p>Operation:</p>
+			<h5 id="b"></h5> <h5 id="operator"></h5> <h5 id="c"></h5>
+	
+            <p>Results:</p>
+			<p><h5 id="answer"></h5> </p>
+        </div>
+	
+        <div>
+            <a href="#calculator2" class="ui-btn ui-btn ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
+        </div>
+
+
+        <div data-role="footer">
+            <h1>Homework</h1>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div data-role="page" id="help3">
+        <div data-role="header">
+            <h1>Simple Calculator</h1>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homepage" data-icon="home">Home</a></li>
+                <li><a href="#calculator2" data-icon="grid">Calculator</a></li>
+                <li><a href="#help3" data-icon="info" class="ui-btn-active ui-state-persist" data-icon="search">Help</a></li>
+
+            </ul>
+        </div>
+
+        <div data-role="main" id="homepage" class="ui-content">
+            <p>This is the help section and provides basic information about how to use the calculator</p>
+        </div>
+
+
+        <a href="#dialoginfo" class="ui-btn ui-icon-info ui-btn-icon-left ">More Info</a>
+
+        <div data-role="footer">
+            <h1>Homework</h1>
+        </div>
+
+    </div>
+
+
+
+    <div data-role="page" data-dialog="true" id="dialoginfo">
+        <div data-role="header" >
+            <h1>More Info</h1>
+        </div>
+        <div data-role="main" id="info" class="ui-content">
+            <p>You have requested more information about the App!</p>
+        </div>
+        <a href="#help3" class="ui-btn ui-btn ui-icon-back ui-btn-icon-left" data-rel="back">Dismiss</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function myfunction(){
+var b =document.getElementById("num1").value; 
+var c =document.getElementById("num2").value;
+var operator =document.getElementById("day").value;
+if (operator=="+"){
+var result = parseFloat(b) + parseFloat(c); 
+}
+else if (operator=="-"){
+var result = parseFloat(b) - parseFloat(c);
+}
+else if (operator=="*"){
+var result = parseFloat(b) * parseFloat(c);
+}
+else if (operator=="/"){
+var result = parseFloat(b) / parseFloat(c);
+}
+document.getElementById("answer").innerHTML = result ; 
+document.getElementById("b").innerHTML = b ; 
+document.getElementById("c").innerHTML = c ; 
+document.getElementById("operator").innerHTML = operator ; 
+}
+</script>
+
+</body>
+</html>
